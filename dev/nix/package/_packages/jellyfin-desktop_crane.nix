@@ -27,8 +27,8 @@ craneLib.buildPackage (
       runHook preInstall
 
       install -Dm755 \
-        target/release/jellyfin-desktop \
-        $out/bin/jellyfin-desktop
+        target/release/jellium-desktop \
+        $out/bin/jellium-desktop
 
       install -Dm644 \
         ${jellyfin-desktop_resources}/linux/org.jellyfin.JellyfinDesktop.desktop \
