@@ -39,6 +39,11 @@
                 buildInputs
                 ;
 
+              nativeBuildInputs = with pkgs; [ 
+                pkg-config 
+                rustPlatform.bindgenHook
+              ];
+
               CEF_PATH = p.cef-lib;
               EXTERNAL_MPV_DIR = p.mpv-external-prefix;
 
