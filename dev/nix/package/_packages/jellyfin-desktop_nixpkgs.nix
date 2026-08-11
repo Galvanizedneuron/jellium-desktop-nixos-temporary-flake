@@ -21,7 +21,7 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   src = ../../../..;
-  pname = "jellyfin-desktop";
+  pname = "jellium-desktop";
   version =
     let
       majorVersion =
@@ -69,8 +69,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
     runHook preInstall
 
     install -Dm755 \
-      build/jellyfin-desktop \
-      $out/bin/jellyfin-desktop
+      build/jellium-desktop \
+      $out/bin/jellium-desktop
 
     install -Dm644 \
       resources/linux/org.jellyfin.JellyfinDesktop.desktop \
@@ -94,10 +94,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
   doCheck = false;
 
   meta = {
-    description = "Jellyfin desktop client";
-    homepage = "https://github.com/jellyfin/jellyfin-desktop";
+    description = "jellium desktop client";
+    homepage = "https://github.com/andrewrabert/jellium-desktop";
     license = lib.licenses.gpl2Only;
-    mainProgram = "jellyfin-desktop";
+    mainProgram = "jellium-desktop";
     # TODO: add myself once this goes on nixpkgs.
     maintainers = with lib.maintainers; [
       {
