@@ -6,10 +6,10 @@
   wrapGAppsHook4,
 
   # Dependencies
-  jellyfin-desktop_crane-deps,
-  jellyfin-desktop_resources,
+  jellium-desktop_crane-deps,
+  jellium-desktop_resources,
 
-  jellyfin-desktop_nixpkgs,
+  jellium-desktop_nixpkgs,
 }:
 craneLib.buildPackage (
   craneCommonArgs
@@ -21,7 +21,7 @@ craneLib.buildPackage (
       rustPlatform.bindgenHook
     ];
 
-    cargoArtifacts = jellyfin-desktop_crane-deps;
+    cargoArtifacts = jellium-desktop_crane-deps;
 
     installPhase = ''
       runHook preInstall
@@ -31,18 +31,18 @@ craneLib.buildPackage (
         $out/bin/jellium-desktop
 
       install -Dm644 \
-        ${jellyfin-desktop_resources}/linux/net.nullsum.JelliumDesktop.desktop \
+        ${jellium-desktop_resources}/linux/net.nullsum.JelliumDesktop.desktop \
         $out/share/applications/net.nullsum.JelliumDesktop.desktop
       install -Dm644 \
-        ${jellyfin-desktop_resources}/linux/net.nullsum.JelliumDesktop.metainfo.xml \
+        ${jellium-desktop_resources}/linux/net.nullsum.JelliumDesktop.metainfo.xml \
         $out/share/metainfo/net.nullsum.JelliumDesktop.metainfo.xml
       install -Dm644 \
-        ${jellyfin-desktop_resources}/linux/net.nullsum.JelliumDesktop.svg \
+        ${jellium-desktop_resources}/linux/net.nullsum.JelliumDesktop.svg \
         $out/share/icons/hicolor/scalable/apps/net.nullsum.JelliumDesktop.svg
 
       runHook postInstall
     '';
 
-    inherit (jellyfin-desktop_nixpkgs) preFixup;
+    inherit (jellium-desktop_nixpkgs) preFixup;
   }
 )
