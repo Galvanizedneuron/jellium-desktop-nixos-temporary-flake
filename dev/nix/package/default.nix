@@ -11,7 +11,7 @@
     }:
     {
       overlayAttrs = {
-        inherit (config.packages) jellyfin-desktop;
+        inherit (config.packages) jellium-desktop;
       };
       packages =
         let
@@ -21,7 +21,7 @@
           p:
           let
             metaSkeleton = {
-              inherit (p.jellyfin-desktop_nixpkgs.meta)
+              inherit (p.jellium-desktop_nixpkgs.meta)
                 homepage
                 license
                 maintainers
@@ -32,7 +32,7 @@
               src = ../../../src;
               strictDeps = true;
 
-              inherit (p.jellyfin-desktop_nixpkgs)
+              inherit (p.jellium-desktop_nixpkgs)
                 version
                 pname
                 passthru
@@ -56,26 +56,26 @@
           (lib.mapAttrs (n: pkgs.callPackage ./_packages/${n}.nix) {
             cef-binary = { };
             cef-lib = { inherit (p) cef-binary; };
-            jellyfin-desktop_resources = {
-              inherit (p) jellyfin-desktop_nixpkgs;
+            jellium-desktop_resources = {
+              inherit (p) jellium-desktop_nixpkgs;
               inherit metaSkeleton;
             };
-            jellyfin-desktop_nixpkgs = {
+            jellium-desktop_nixpkgs = {
               inherit (p) cef-lib mpv-external-prefix;
               inherit (self) lastModifiedDate;
             };
-            jellyfin-desktop_crane-deps = {
+            jellium-desktop_crane-deps = {
               inherit craneLib craneCommonArgs metaSkeleton;
             };
-            jellyfin-desktop_crane = {
+            jellium-desktop_crane = {
               inherit craneLib craneCommonArgs;
-              inherit (p) jellyfin-desktop_crane-deps jellyfin-desktop_resources jellyfin-desktop_nixpkgs;
+              inherit (p) jellium-desktop_crane-deps jellium-desktop_resources jellium-desktop_nixpkgs;
             };
             mpv-external-prefix = { };
           })
           // {
-            jellyfin-desktop = p.jellyfin-desktop_crane;
-            default = p.jellyfin-desktop;
+            jellium-desktop = p.jellium-desktop_crane;
+            default = p.jellium-desktop;
           }
         ));
     };
