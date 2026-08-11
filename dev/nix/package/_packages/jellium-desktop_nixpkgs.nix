@@ -73,14 +73,14 @@ rustPlatform.buildRustPackage (finalAttrs: {
       $out/bin/jellium-desktop
 
     install -Dm644 \
-      resources/linux/org.jellyfin.JellyfinDesktop.desktop \
-      $out/share/applications/org.jellyfin.JellyfinDesktop.desktop
+      resources/linux/net.nullsum.JelliumDesktop.desktop \
+      $out/share/applications/net.nullsum.JelliumDesktop.desktop
     install -Dm644 \
-      resources/linux/org.jellyfin.JellyfinDesktop.metainfo.xml \
-      $out/share/metainfo/org.jellyfin.JellyfinDesktop.metainfo.xml
+      resources/linux/net.nullsum.JelliumDesktop.metainfo.xml \
+      $out/share/metainfo/net.nullsum.JelliumDesktop.metainfo.xml
     install -Dm644 \
-      resources/linux/org.jellyfin.JellyfinDesktop.svg \
-      $out/share/icons/hicolor/scalable/apps/org.jellyfin.JellyfinDesktop.svg
+      resources/linux/net.nullsum.JelliumDesktop.svg \
+      $out/share/icons/hicolor/scalable/apps/net.nullsum.JelliumDesktop.svg
 
     runHook postInstall
   '';
