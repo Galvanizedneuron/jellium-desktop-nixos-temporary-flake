@@ -31,14 +31,14 @@ craneLib.buildPackage (
         $out/bin/jellium-desktop
 
       install -Dm644 \
-        ${jellyfin-desktop_resources}/linux/org.jellyfin.JellyfinDesktop.desktop \
-        $out/share/applications/org.jellyfin.JellyfinDesktop.desktop
+        ${jellyfin-desktop_resources}/linux/net.nullsum.JelliumDesktop.desktop \
+        $out/share/applications/net.nullsum.JelliumDesktop.desktop
       install -Dm644 \
-        ${jellyfin-desktop_resources}/linux/org.jellyfin.JellyfinDesktop.metainfo.xml \
-        $out/share/metainfo/org.jellyfin.JellyfinDesktop.metainfo.xml
+        ${jellyfin-desktop_resources}/linux/net.nullsum.JelliumDesktop.metainfo.xml \
+        $out/share/metainfo/net.nullsum.JelliumDesktop.metainfo.xml
       install -Dm644 \
-        ${jellyfin-desktop_resources}/linux/org.jellyfin.JellyfinDesktop.svg \
-        $out/share/icons/hicolor/scalable/apps/org.jellyfin.JellyfinDesktop.svg
+        ${jellyfin-desktop_resources}/linux/net.nullsum.JelliumDesktop.svg \
+        $out/share/icons/hicolor/scalable/apps/net.nullsum.JelliumDesktop.svg
 
       runHook postInstall
     '';
