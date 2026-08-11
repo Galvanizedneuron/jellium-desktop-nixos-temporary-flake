@@ -1,5 +1,5 @@
 {
-  description = "Jellyfin Desktop Client";
+  description = "Jellium Desktop Client";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -10,15 +10,6 @@
 
     home-manager.url = "github:nix-community/home-manager";
     crane.url = "github:ipetkov/crane";
-  };
-
-  nixConfig = {
-    extra-substituters = [
-      "https://xaltsc-jfnd.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "xaltsc-jfnd.cachix.org-1:cCD4MB/Hqw1ktSbT+Dtv0clFpK1/YksbIQExL1hBxqo="
-    ];
   };
 
   outputs =
