@@ -5,8 +5,8 @@ in
 {
   imports = [ inputs.home-manager.flakeModules.home-manager ];
   flake.homeModules = rec {
-    default = jellyfin-desktop;
-    jellyfin-desktop =
+    default = jellium-desktop;
+    jellium-desktop =
       {
         config,
         lib,
@@ -14,7 +14,7 @@ in
         ...
       }:
       let
-        cfg = config.programs.jellyfin-desktop;
+        cfg = config.programs.jellium-desktop;
         inherit (lib)
           mkEnableOption
           mkOption
@@ -30,14 +30,14 @@ in
 
       in
       {
-        options.programs.jellyfin-desktop = {
-          cache.enable = mkEnableOption "Enable jellyfin cache";
-          enable = mkEnableOption "Enable jellyfin-desktop";
+        options.programs.jellium-desktop = {
+          cache.enable = mkEnableOption "Enable jellium cache";
+          enable = mkEnableOption "Enable jellium-desktop";
           package = mkOption {
-            description = "Package for jellyfin-desktop";
+            description = "Package for jellium-desktop";
             type = types.package;
-            default = packages.${pkgs.stdenv.hostPlatform.system}.jellyfin-desktop;
-            defaultText = literalExpression "<flake>.packages.$system.jellyfin-desktop";
+            default = packages.${pkgs.stdenv.hostPlatform.system}.jellium-desktop;
+            defaultText = literalExpression "<flake>.packages.$system.jellium-desktop";
           };
           settings =
             let
@@ -105,11 +105,11 @@ in
               cfg.package
             ];
 
-            home.activation.mergeJellyfinDesktopConfiguration =
+            home.activation.mergejelliumDesktopConfiguration =
               let
                 nonNullSettings = (lib.attrsets.filterAttrs (_: v: v != null) cfg.settings) // cfg.extraConfig;
                 newSettingsFile = pkgs.writeText "jfnd-settings.json" (builtins.toJSON nonNullSettings);
-                target = "${config.xdg.configHome}/jellyfin-desktop/settings.json";
+                target = "${config.xdg.configHome}/jellium-desktop/settings.json";
                 jq = lib.getExe pkgs.jq;
               in
               (mkIf (nonNullSettings != { }) (
