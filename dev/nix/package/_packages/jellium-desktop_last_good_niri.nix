@@ -1,6 +1,6 @@
 {
   fetchFromGitHub,
-  jellyfin-desktop,
+  jellium-desktop,
   cef-binary,
   cef-lib,
 }:
@@ -15,14 +15,14 @@ let
     };
   };
 in
-(jellyfin-desktop.override {
+(jellium-desktop.override {
   cef-lib = cef-lib.override { cef-binary = cef-bin; };
   wl-proxy-hash = "sha256-zssZ6kJTw7GrwXJBdvxc+HWdIKaqb/SfUqT/VTaI4pI=";
 }).overrideAttrs
   (old: {
     src = fetchFromGitHub {
-      owner = "jellyfin";
-      repo = "jellyfin-desktop";
+      owner = "andrewrabert";
+      repo = "jellium-desktop";
       rev = "81afa6d0be5e9eb1e6ea2c1c5e25ab68a7b532c8";
       hash = "sha256-f42jTE92an3S7XShUyosvlj9It+H8IiHRJtFfiV2uM0=";
       meta = old.meta // {
