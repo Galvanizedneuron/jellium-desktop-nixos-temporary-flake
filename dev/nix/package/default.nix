@@ -47,7 +47,7 @@
               CEF_PATH = p.cef-lib;
               EXTERNAL_MPV_DIR = p.mpv-external-prefix;
 
-              cargoExtraArgs = "--bin jellyfin-desktop";
+              cargoExtraArgs = "--bin jellium-desktop";
 
               meta = metaSkeleton;
             };
