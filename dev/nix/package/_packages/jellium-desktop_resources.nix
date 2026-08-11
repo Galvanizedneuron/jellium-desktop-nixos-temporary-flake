@@ -1,12 +1,12 @@
 {
   stdenv,
-  jellyfin-desktop_nixpkgs,
+  jellium-desktop_nixpkgs,
   metaSkeleton,
 }:
 stdenv.mkDerivation (finalAttrs: {
   src = ../../../../resources;
-  pname = "${jellyfin-desktop_nixpkgs.pname}-resources";
-  inherit (jellyfin-desktop_nixpkgs) version;
+  pname = "${jellium-desktop_nixpkgs.pname}-resources";
+  inherit (jellium-desktop_nixpkgs) version;
   dontUnpack = true;
   installPhase = ''
     cp -r $src $out
